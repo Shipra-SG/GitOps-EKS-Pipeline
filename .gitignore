@@ -1,0 +1,20 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Secrets - kabhi commit nahi
+.env
+*.pem
+*.key
+.aws/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+
+# Kubernetes / OS
+kubeconfig
+.DS_Store
