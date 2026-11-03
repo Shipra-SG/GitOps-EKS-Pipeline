@@ -18,3 +18,4 @@ __pycache__/
 # Kubernetes / OS
 kubeconfig
 .DS_Store
+*.swp
