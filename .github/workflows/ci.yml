@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Docker image
-        run: docker run -t gitops-app:ci ./app
+        run: docker build -t gitops-app:ci ./app
