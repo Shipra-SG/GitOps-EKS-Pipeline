@@ -1,6 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata:i
+metadata:
   name: gitops-app
   labels:
     app: gitops-app
