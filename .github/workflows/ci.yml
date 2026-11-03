@@ -2,12 +2,20 @@ name: CI
 
 on:
   push:
-    branches:  [ "main" ]
+    branches: [main]
   pull_request:
-    branches: [ "main" ]
+    branches: [main]
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AWS_REGION: us-east-1
+  ECR_REPOSITORY: gitops-app
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -15,3 +23,23 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t gitops-app:ci ./app
+
+      - name: Configure AWS credentials
+        if: github.event_name == 'push'
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::678865629376:role/github-actions-ecr-push
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        if: github.event_name == 'push'
+        id: ecr-login
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Tag and push image
+        if: github.event_name == 'push'
+        env:
+          REGISTRY: ${{ steps.ecr-login.outputs.registry }}
+        run: |
+          docker tag gitops-app:ci $REGISTRY/$ECR_REPOSITORY:${{ github.sha }}
+          docker push $REGISTRY/$ECR_REPOSITORY:${{ github.sha }}
