@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: gitops-app
-          image: gitops-app:v1
+          image: 678865629376.dkr.ecr.us-east-1.amazonaws.com/gitops-app:cca3452e1450f0cef5bf9d6ef3a16b34c1b92f87
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000
