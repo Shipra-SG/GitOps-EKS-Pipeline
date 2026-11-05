@@ -95,7 +95,7 @@ footer { margin-top: 26px; opacity: 0.55; font-size: 13px; }
     </div>
   </div>
 
-  <footer>Built by Shipra &middot; Cloud With Shipra &middot; refreshes every 3 seconds</footer>
+  <footer>Built by Shipra &middot; Cloud With Shipra &middot; auto-deployed via GitOps</footer>
 </div>
 
 <script>
