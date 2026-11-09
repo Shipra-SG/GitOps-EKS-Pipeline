@@ -15,7 +15,7 @@ Built by **Shipra** ([Cloud With Shipra](https://www.youtube.com/@CloudWithShipr
 
 **Video walkthrough (4 min):** TODO add YouTube link
 
-![App running on EKS behind a load balancer](docs/images/01-app-dashboard.png)
+![App running on EKS behind a load balancer](docs/images/app-dashboard-1.png)
 
 ## Contents
 
@@ -80,9 +80,11 @@ flowchart LR
 - 1 Internet Gateway and 1 NAT Gateway (a single NAT, to keep cost low while learning)
 - EKS managed node group with 2 x `t3.medium` nodes in the private subnets, Kubernetes 1.36
 
-![VPC resource map](docs/images/09-vpc-resource-map.png)
+![VPC resource map](docs/images/vpc-resource-map-2.png)
+![VPC resource map](docs/images/vpc-resource-map-3.png)
 
-![EKS cluster in the AWS console](docs/images/10-eks-cluster.png)
+![EKS cluster in the AWS console](docs/images/eks-cluster-4.png)
+![EKS cluster in the AWS console](docs/images/eks-cluster-5.png)
 
 ---
 
