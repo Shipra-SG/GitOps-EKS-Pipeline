@@ -8,6 +8,8 @@ The infrastructure is provisioned with **Terraform**, and Prometheus and Grafana
 
 Built by **Shipra** ([Cloud With Shipra](https://www.youtube.com/@CloudWithShipra)).
 
+> The cluster is destroyed after every working session to control cost, so there is no permanent live URL. The screenshots and recordings below show each stage.
+
 <!-- MEDIA: hero GIF. Screen recording of the page changing after a git push (docs/images/demo-auto-deploy.gif). Delete this block if you do not have the GIF. -->
 ![A git push changing the running app, with no manual step](docs/images/demo-auto-deploy.gif)
 
@@ -211,7 +213,7 @@ Editing the page footer in `app/app.py` and pushing triggered CI, the ECR push, 
 <!-- MEDIA: optional, docs/images/13-iam-trust-policy.png with the AWS account ID blacked out. Delete the next line if you do not add it. -->
 ![IAM role trust policy, account ID hidden](docs/images/13-iam-trust-policy.png)
 
-ECR basic scan results on an early image: no critical findings, a few high and medium findings that come from the Debian base image packages.
+ECR basic scan results on an early image: no critical findings, and a few high and medium findings. The scan does not block the pipeline yet (a severity gate is on the roadmap).
 
 ![ECR image scan result](docs/images/08-ecr-scan.png)
 
